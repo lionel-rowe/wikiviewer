@@ -1,0 +1,76 @@
+/* whole page stuff */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #eee;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+a:link {
+  color: #678;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #9ab;
+  text-decoration: none;
+}
+
+
+/* Styling the container for the content */
+
+.bigContainer {
+  max-width: 700px;
+  padding: 15px;
+  margin: auto;
+  min-height: calc(100vh - 30px);
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+}
+
+/* Button styling */
+
+button {
+  background: linear-gradient(#def, #cde);
+  border: 1px solid #678;
+  border-radius: 3px;
+  height: 24px;
+}
+
+button:active {
+  background: linear-gradient(#cde, #def);
+}
+
+/* Stuff in the results */
+
+.showResultsMsg {
+  font-style: italic;
+}
+
+.searchmatch {    /* Returned in the JSON */
+  font-weight: bold;
+}
+
+/* Remove x button from search field */
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
