@@ -50,14 +50,13 @@ $(document).ready(function() {
         }
       }
       
-        
     }
     
     function errorMsg(x, e) {
       
       // Error handling for when the AJAX request fails.
       
-      var m;
+      var m; //essages
       
       if (x.status === 0) {
         m = 'network error';
@@ -81,6 +80,5 @@ $(document).ready(function() {
   $('#randomButton').click(function() {
     window.open('https://en.wikipedia.org/wiki/Special:Random', '_blank');
   });
-  
   
 });
