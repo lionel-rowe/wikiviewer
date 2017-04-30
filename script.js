@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   
   $('#searchButton').click(function(e) {
     e.preventDefault();
@@ -21,30 +20,42 @@ $(document).ready(function() {
       $('#searchResults').html('');
       
       try {
+        
+        if (data.query.search.length === 0) {
+          throw 'nodata';
+        }
+        
         $('#searchResults').append(`<p class="showResultsMsg">Showing results ${1} to ${data.query.search.length} of ${data.query.searchinfo.totalhits}.</p>`);
         
         for (i=0;i<data.query.search.length;i++) {
           $('#searchResults').append(
             `
-            
             <h3>
               <a href="https://en.wikipedia.org/wiki/${data.query.search[i].title.replace(' ','%20')}" target="_blank">
                 ${data.query.search[i].title}
               </a>
             </h3>
             <p>${data.query.search[i].snippet}...</p>
-            
             `
           );
         }
       } catch (e) {
-        $('#searchResults').html('<p>No results found.</p>');
+        if (e instanceof TypeError || e === 'nodata') /* Error handling for when the AJAX request is successful but the content does not contain displayable search results.
+        
+        TypeError is thrown if the search string is empty. */
+        {
+          $('#searchResults').html('<p>No results found.</p>');
+        } else {
+          $('#searchResults').html('<p>An unknown error has occurred. Please try again.</p>');
+        }
       }
       
         
     }
     
     function errorMsg(x, e) {
+      
+      // Error handling for when the AJAX request fails.
       
       var m;
       
