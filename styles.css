@@ -35,6 +35,11 @@ a:hover {
   text-decoration: underline;
 }
 
+.nobreak {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
 /* Styling the container for the content */
 
 .bigContainer {
